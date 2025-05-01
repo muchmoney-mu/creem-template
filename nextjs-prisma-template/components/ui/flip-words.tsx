@@ -3,6 +3,16 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+/**
+ * FlipWords Component
+ * 
+ * Animated text component that cycles through words with a flip animation effect.
+ * Uses Framer Motion for smooth transitions and letter-by-letter animations.
+ * 
+ * @param words - Array of strings to cycle through
+ * @param duration - Time in milliseconds between word changes (default: 3000ms)
+ * @param className - Optional CSS classes for styling
+ */
 export const FlipWords = ({
   words,
   duration = 3000,
@@ -15,7 +25,11 @@ export const FlipWords = ({
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
-  // thanks for the fix Julian - https://github.com/Julian-AT
+  /**
+   * Animation Control
+   * Cycles to the next word in the array or loops back to start
+   * Credit: Julian-AT (https://github.com/Julian-AT)
+   */
   const startAnimation = useCallback(() => {
     const word = words[words.indexOf(currentWord) + 1] || words[0];
     setCurrentWord(word);
@@ -63,7 +77,11 @@ export const FlipWords = ({
         )}
         key={currentWord}
       >
-        {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
+        {/**
+         * Word and Letter Animation
+         * Splits words into individual letters for granular animation control
+         * Credit: Sajal Dewangan (https://twitter.com/DewanganSajal)
+         */}
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}

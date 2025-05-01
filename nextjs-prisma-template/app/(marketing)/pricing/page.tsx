@@ -21,7 +21,6 @@ const PricingPage = () => {
 
   return (
     <div className="relative overflow-hidden py-20 md:py-0">
-      <NavBar />
       <Container className="flex flex-col items-center justify-between  pb-20">
         <div className="relative z-20 py-10 md:pt-40">
           <Heading as="h1">Configure ProductID on .env</Heading>

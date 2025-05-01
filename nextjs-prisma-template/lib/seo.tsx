@@ -1,12 +1,21 @@
 import config from "@/config";
 import type { Metadata } from "next";
 
-
-// These are all the SEO tags you can add to your pages.
-// It prefills data with default title/description/OG, etc.. and you can cusotmize it for each page.
-// It's already added in the root layout.js so you don't have to add it to every pages
-// But I recommend to set the canonical URL for each page (export const metadata = getSEOTags({canonicalUrlRelative: "/"});)
-// See https://TODO/docs/features/seo
+/**
+ * SEO Tag Generator
+ * 
+ * Generates comprehensive SEO metadata for Next.js pages including:
+ * - Title and description optimized for search engines
+ * - OpenGraph tags for social media sharing
+ * - Canonical URLs for proper indexing
+ * - Keywords and application metadata
+ * 
+ * Already configured in root layout.tsx - no need to add to every page
+ * For individual pages, set canonical URL:
+ * export const metadata = getSEOTags({canonicalUrlRelative: "/your-path"});
+ * 
+ * @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+ */
 export const getSEOTags = ({
   title,
   description,
@@ -69,13 +78,20 @@ export const getSEOTags = ({
   };
 };
 
-// Strctured Data for Rich Results on Google. Learn more: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
-// Find your type here (SoftwareApp, Book...): https://developers.google.com/search/docs/appearance/structured-data/search-gallery
-// Use this tool to check data is well structure: https://search.google.com/test/rich-results
-// You don't have to use this component, but it increase your chances of having a rich snippet on Google.
-// I recommend this one below to your /page.js for software apps: It tells Google your AppName is a Software, and it has a rating of 4.8/5 from 12 reviews.
-// Fill the fields with your own data
-// See https://todo/docs/features/seo
+/**
+ * Schema.org Structured Data Generator
+ * 
+ * Generates JSON-LD structured data for rich results in Google Search.
+ * Current implementation is configured for SoftwareApplication type.
+ * 
+ * Key features:
+ * - Improves search result appearance with rich snippets
+ * - Provides detailed application information to search engines
+ * - Includes ratings, pricing, and application details
+ * 
+ * @see https://developers.google.com/search/docs/appearance/structured-data
+ * @see https://schema.org/SoftwareApplication
+ */
 export const renderSchemaTags = () => {
   return (
     <script

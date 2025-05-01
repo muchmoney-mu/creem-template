@@ -1,6 +1,7 @@
-import axios from "axios";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { Creem } from "creem";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export interface CheckoutSession {
   id: string;
@@ -12,51 +13,42 @@ export interface CheckoutSession {
   mode: string;
 }
 
-export async function GET() {
-  console.log("HERER");
-  const creem = new Creem({
-    serverIdx: 1,
-  });
+const creem = new Creem({
+  serverIdx: 1,
+});
+
+export async function GET(req: NextRequest) {
+  const session = await auth.api.getSession({ headers: headers() });
+  const productId = req.nextUrl.searchParams.get("product_id");
+
+  if (!session?.user?.id || !productId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const apiKey = process.env.CREEM_API_KEY;
-  const productId = process.env.CREEM_PRODUCT_ID;
-  // const creemTestUrl = "https://test-api.creem.io/v1/checkouts";
+
+  const successUrl = process.env.SUCCESS_URL;
+
   //
-  console.log("calling product");
-  const resultProduct = await creem.createCheckout({
+  const checkoutSessionResponse = await creem.createCheckout({
     xApiKey: apiKey!,
-    createCheckoutRequestEntity: {
-      productId: productId!,
+    createCheckoutRequest: {
+      productId: productId as string,
+      successUrl: successUrl as string,
+      // You can use requestId or metadata to store user information
+      requestId: session?.user.id as string,
+      metadata: {
+        email: session?.user.email as string,
+        name: session?.user.name as string,
+        userId: session?.user.id as string,
+        myCustomField: "myCustomValue",
+      },
     },
   });
-  console.log(resultProduct);
-  // const creemTestUrl = "http://localhost:8000/v1/checkouts";
-  // const result = await creem.createCheckout({
-  //   xApiKey: apiKey!,
-  //   createCheckoutRequestEntity: {
-  //     productId: productId!,
-  //   },
-  // });
-  //
-  // console.log(result);
 
-  // const checkoutSessionResponse = await axios.post(
-  //   creemTestUrl,
-  //   {
-  //     product_id: productId,
-  //     units: 4,
-  //   },
-  //   { headers: { "x-api-key": apiKey } },
-  // );
-  // if (checkoutSessionResponse.status !== 200) {
-  //   return;
-  // }
-
-  // return NextResponse.json({
-  //   success: true,
-  //   checkout: checkoutSessionResponse.data as CheckoutSession,
-  // });
+  console.log(JSON.stringify(checkoutSessionResponse));
   return NextResponse.json({
     success: true,
-    checkout: true,
+    checkoutUrl: checkoutSessionResponse.checkoutUrl,
   });
 }

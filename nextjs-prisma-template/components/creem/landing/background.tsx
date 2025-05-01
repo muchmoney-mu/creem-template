@@ -7,14 +7,20 @@ import React, { useId } from "react";
 export const Background = () => {
   return (
     <div className="absolute inset-0 h-full w-full pointer-events-none z-0">
-      <div className="absolute inset-0 h-full w-full bg-white dark:bg-black pointer-events-none [mask-image:radial-gradient(ellipse_at_center,transparent,white)]" />
-      {Array.from({ length: 6 }).map((_, index) => (
-        <div className="flex" key={"grid-column" + index}>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <GridBlock key={`grid-row` + index} />
-          ))}
-        </div>
-      ))}
+      {/* Terminal-like background with scanlines and grid */}
+      <div className="absolute inset-0 h-full w-full bg-black opacity-90" />
+      
+      {/* Scanlines effect */}
+      <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_bottom,rgba(128,128,128,0.03)_1px,transparent_1px)] bg-[size:100%_2px]" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,rgba(128,128,128,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(128,128,128,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      
+      {/* Terminal glow effect */}
+      <div className="absolute inset-0 h-full w-full bg-[radial-gradient(circle_at_50%_50%,rgba(128,128,128,0.1),transparent_120%)]" />
+      
+      {/* Noise texture */}
+      <div className="absolute inset-0 h-full w-full opacity-[0.15] [background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')]" />
     </div>
   );
 };

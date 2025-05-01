@@ -136,7 +136,7 @@ export function ContactForm() {
                             id="name"
                             type="name"
                             placeholder="John Doe"
-                            className="block w-full px-4 rounded-md py-1.5 bg-white dark:bg-neutral-900 shadow-aceternity placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                            className="block w-full px-4 rounded-md py-1.5 bg-white dark:bg-neutral-900 shadow-aceternity placeholder:text-neutral-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
                             {...field}
                           />
                         </div>
@@ -162,7 +162,7 @@ export function ContactForm() {
                             id="email"
                             type="email"
                             placeholder="hello@johndoe.com"
-                            className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md py-1.5  shadow-aceternity text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                            className="block w-full px-4 rounded-md py-1.5 bg-white dark:bg-neutral-900 shadow-aceternity text-black placeholder:text-neutral-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
                             {...field}
                           />
                         </div>
@@ -188,7 +188,7 @@ export function ContactForm() {
                             id="company"
                             type="company"
                             placeholder="Creem IO, Inc"
-                            className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md py-1.5  shadow-aceternity text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                            className="block w-full px-4 rounded-md py-1.5 bg-white dark:bg-neutral-900 shadow-aceternity text-black placeholder:text-neutral-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
                             {...field}
                           />
                         </div>
@@ -214,7 +214,7 @@ export function ContactForm() {
                             rows={5}
                             id="message"
                             placeholder="Enter your message here"
-                            className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md py-1.5  shadow-aceternity text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                            className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md py-1.5  shadow-aceternity text-black placeholder:text-neutral-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
                             {...field}
                           />
                         </div>

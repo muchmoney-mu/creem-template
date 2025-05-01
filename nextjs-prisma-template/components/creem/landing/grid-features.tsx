@@ -37,7 +37,7 @@ export const GridFeatures = () => {
     {
       title: "Analytics",
       description:
-        "Track your growth and make data-driven decisions with integrated analytics, so you’re never launching blind. (comming soon)",
+        "Track your growth and make data-driven decisions with integrated analytics, so you're never launching blind. (comming soon)",
       icon: <IconBrandYoutube />,
     },
     {
@@ -82,7 +82,7 @@ const Feature = ({
       )}
       <div className="mb-4 relative z-10 px-10">{icon}</div>
       <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div className="absolute left-0 inset-y-0 h-6 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover:bg-blue-500 transition duration-200" />
+        <div className="absolute left-0 inset-y-0 h-6 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover:bg-[#ffbe98] transition duration-200" />
         <span className="group-hover:translate-x-2 transition duration-200 inline-block">
           {title}
         </span>
