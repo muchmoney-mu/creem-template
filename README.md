@@ -2,7 +2,7 @@
 
 A **Next.js App Router** template project for integrating [Creem](https://creem.io) with modern web apps. This template demonstrates how to use the [Creem SDK](https://github.com/armitage-labs/creem-sdk) to implement common subscription and payment flows. Use this as a starting point for your own Creem-powered SaaS or product.
 
-> **Note:** This is a template project. We welcome [issues](https://github.com/YOUR_REPO/issues) for new use cases and [pull requests](https://github.com/YOUR_REPO/pulls) to improve the template!
+> **Note:** This is a template project. We welcome [issues](https://github.com/armitage-labs/creem-template/issues) for new use cases and [pull requests](https://github.com/armitage-labs/creem-template/pulls) to improve the template!
 
 ---
 
