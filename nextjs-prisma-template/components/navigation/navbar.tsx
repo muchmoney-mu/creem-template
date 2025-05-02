@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Container } from "@/components/creem/landing/container"
-import { IconTerminal } from "@tabler/icons-react"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/creem/landing/container";
+import { IconTerminal } from "@tabler/icons-react";
 
 export function MainNav() {
   return (
@@ -14,20 +14,20 @@ export function MainNav() {
               <span className="font-mono text-lg text-[#ffbe98]">~/creem</span>
             </Link>
             <div className="hidden md:flex gap-6">
-              <Link 
-                href="/features" 
+              <Link
+                href="https://www.creem.io"
                 className="font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
               >
                 ./features
               </Link>
-              <Link 
-                href="/pricing" 
+              <Link
+                href="https://www.creem.io/pricing"
                 className="font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
               >
                 ./pricing
               </Link>
-              <Link 
-                href="/docs" 
+              <Link
+                href="https://docs.creem.io/"
                 className="font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
               >
                 ./docs
@@ -45,5 +45,6 @@ export function MainNav() {
         </div>
       </Container>
     </nav>
-  )
-} 
+  );
+}
+

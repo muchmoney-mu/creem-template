@@ -16,6 +16,8 @@ CREEM_API_KEY="creem_test_my-secret-api-key"
 
 BETTER_AUTH_SECRET="my-random-auth-secret"
 
+SUCCESS_URL=http://localhost:3000/account #Base URL of your app appended by /account
+
 BETTER_AUTH_URL=http://localhost:3000 #Base URL of your app`;
 
 const steps: Step[] = [

@@ -1,11 +1,19 @@
 "use client";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Background } from "@/components/creem/landing/background";
 import { TerminalButton } from "@/components/ui/terminal-button";
 import { useState, FormEvent } from "react";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 export default function SigninPage() {
+  const router = useRouter();
+  useEffect(() => {
+    authClient.getSession().then(({ data }) => {
+      if (data?.user) router.replace("/dashboard");
+    });
+  }, [router]);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
       <Background />

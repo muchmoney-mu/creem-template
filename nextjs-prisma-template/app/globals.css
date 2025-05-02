@@ -65,6 +65,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Subtle grid pattern background for visual texture */
     background-image: repeating-linear-gradient(
       0deg,
       rgba(128, 128, 128, 0.05) 0px,
@@ -74,25 +75,27 @@
     );
   }
   
-  /* Terminal-like selection */
+  /* Selection styling for better readability and terminal-like aesthetics */
   ::selection {
     background: rgba(128, 128, 128, 0.3);
     color: rgb(200, 200, 200);
   }
   
-  /* Scrollbar styling */
+  /* Custom scrollbar styling for modern browsers */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 8px; /* Narrow scrollbar for minimal visual impact */
     height: 8px;
   }
   
+  /* Dark scrollbar track matching theme */
   ::-webkit-scrollbar-track {
     background: hsl(0 0% 3.9%);
   }
   
+  /* Subtle scrollbar thumb with hover effect */
   ::-webkit-scrollbar-thumb {
     background: rgba(128, 128, 128, 0.2);
-    border-radius: 0;
+    border-radius: 0; /* Sharp edges for modern look */
   }
   
   ::-webkit-scrollbar-thumb:hover {

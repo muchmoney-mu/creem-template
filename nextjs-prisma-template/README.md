@@ -1,38 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Creem Next.js + Prisma Template
 
-## Getting Started
+A **Next.js App Router** template project for integrating [Creem](https://creem.io) with modern web apps. This template demonstrates how to use the [Creem SDK](https://github.com/armitage-labs/creem-sdk) to implement common subscription and payment flows. Use this as a starting point for your own Creem-powered SaaS or product.
 
-First, run the development server:
+> **Note:** This is a template project. We welcome [issues](https://github.com/YOUR_REPO/issues) for new use cases and [pull requests](https://github.com/YOUR_REPO/pulls) to improve the template!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Quickstart
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+2. **Install dependencies** (use your preferred package manager)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   yarn install
+   # or
+   npm install
+   # or
+   pnpm install
+   ```
 
-## Learn More
+3. **Set up your environment variables**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   cp .env.example .env
+   # Edit .env and fill in the required variables
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run database migrations** (creates a local SQLite database)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   yarn prisma migrate dev
+   ```
 
-## Deploy on Vercel
+5. **Start the development server**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   yarn dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+6. **Expose your app to the internet for webhooks**
 
-TODO
+   To receive webhooks from Creem, you need a reverse proxy. We recommend [NGROK](https://ngrok.com/docs/getting-started/), which is free and easy to set up.
+
+   - [NGROK Documentation](https://ngrok.com/docs/getting-started/)
+
+---
+
+## 📝 Introduction
+
+This template provides a ready-to-use integration with Creem, Prisma, and Next.js App Router. It demonstrates:
+
+- Fetching and displaying all products in your Creem account
+- Creating checkout sessions for products
+- Fulfilling orders based on the purchasing account
+- Handling subscription creation, cancellation, and expiration
+- Generating customer portal links for clients with active subscriptions
+
+The codebase is modular, uses TypeScript throughout, and leverages modern React patterns with [Shadcn UI](https://ui.shadcn.com/), [Radix UI](https://www.radix-ui.com/), and [Tailwind CSS](https://tailwindcss.com/).
+The template is not taking security into account, so please be careful when using any of its code in production.
+
+---
+
+## 🛠️ Technologies Used
+
+- [Next.js](https://nextjs.org/) – React framework for server-side rendering and static site generation
+- [Prisma](https://www.prisma.io/) – Type-safe ORM for database access
+- [SQLite](https://www.sqlite.org/) – Lightweight, file-based relational database
+- [Creem SDK](https://www.npmjs.com/package/creem) – Subscription and payment integration
+
+---
+
+## 💡 Contributing
+
+- **Request new use cases:** [Create an issue](https://github.com/YOUR_REPO/issues)
+- **Improve the template:** [Open a pull request](https://github.com/YOUR_REPO/pulls)
+
+We welcome contributions and feedback from the community!
+
+---
+
+## 📚 Resources
+
+- [Creem SDK Documentation](https://github.com/armitage-labs/creem-sdk)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+## License
+
+MIT

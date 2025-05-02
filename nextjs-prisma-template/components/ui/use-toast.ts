@@ -18,15 +18,32 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement
 }
 
+/**
+ * Toast Action Types
+ * Constants defining the available actions for toast state management
+ */
 const actionTypes = {
+  /** Add a new toast to the queue */
   ADD_TOAST: "ADD_TOAST",
+  
+  /** Update an existing toast's content */
   UPDATE_TOAST: "UPDATE_TOAST",
+  
+  /** Mark a toast for dismissal */
   DISMISS_TOAST: "DISMISS_TOAST",
+  
+  /** Remove a toast from the queue */
   REMOVE_TOAST: "REMOVE_TOAST",
 } as const
 
 let count = 0
 
+/**
+ * Generates a unique sequential ID for toasts
+ * Uses a counter that wraps around at MAX_SAFE_INTEGER
+ * 
+ * @returns A string representation of the next available ID
+ */
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER
   return count.toString()

@@ -1,9 +1,18 @@
 "use client";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Background } from "@/components/creem/landing/background";
 import { TerminalButton } from "@/components/ui/terminal-button";
+import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export default function SignupPage() {
+  const router = useRouter();
+  useEffect(() => {
+    authClient.getSession().then(({ data }) => {
+      if (data?.user) router.replace("/dashboard");
+    });
+  }, [router]);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
       <Background />
@@ -24,7 +33,6 @@ export default function SignupPage() {
 }
 
 import { useState, FormEvent } from "react";
-import { authClient } from "@/lib/auth-client";
 
 interface SignupFormState {
   isLoading: boolean;
@@ -39,13 +47,12 @@ export function SignupForm() {
     hasError: false,
     errorMessage: "",
   });
+  const router = useRouter();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState({ isLoading: true, hasError: false, errorMessage: "" });
     try {
-      // Adjust this method if your better-auth version uses a different API
-      // await authClient.signUpWithEmailAndPassword(form.email, form.password);
       const email = form.email;
       const password = form.password;
       const { data, error } = await authClient.signUp.email(
@@ -72,8 +79,9 @@ export function SignupForm() {
           },
         },
       );
-      // Optionally redirect or show success
-      window.location.href = "/";
+      if (error) throw error;
+      // After signup, ensure user is logged in and redirect to /dashboard
+      window.location.href = "/dashboard";
     } catch (err: any) {
       setState({
         isLoading: false,
@@ -132,9 +140,20 @@ export function SignupForm() {
         {state.isLoading ? "Signing up..." : "Sign up"}
       </TerminalButton>
       {state.hasError && (
-        <div className="text-red-400 font-mono text-xs mt-2">
-          {state.errorMessage}
-        </div>
+        <>
+          <div className="text-red-400 font-mono text-xs mt-2">
+            {state.errorMessage}
+          </div>
+          {state.errorMessage?.toLowerCase().includes("already exists") && (
+            <button
+              type="button"
+              className="mt-2 w-full rounded bg-neutral-800 text-white font-mono py-2 hover:bg-neutral-700 transition"
+              onClick={() => router.push("/signin")}
+            >
+              Go to Login
+            </button>
+          )}
+        </>
       )}
     </form>
   );

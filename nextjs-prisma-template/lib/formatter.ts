@@ -40,6 +40,16 @@ export const formatAmount = (amount?: number): string => {
     }
   };
 
+  /**
+   * Formats billing period codes into human-readable text
+   * 
+   * @param billingPeriod - The billing period code from BillingPeriod enum
+   * @returns A user-friendly string representation of the billing period
+   * 
+   * @example
+   * billingPeriodDisplay('one-m') // Returns "Monthly"
+   * billingPeriodDisplay('one-y') // Returns "Yearly"
+   */
   export const billingPeriodDisplay = (billingPeriod: string) => {
     switch (billingPeriod) {
       case BillingPeriod.oneMonth: {
@@ -49,7 +59,7 @@ export const formatAmount = (amount?: number): string => {
         return "Every 3 Months";
       }
       case BillingPeriod.sixMonths: {
-        return "Evey 6 Months";
+        return "Every 6 Months";
       }
       case BillingPeriod.oneYear: {
         return "Yearly";

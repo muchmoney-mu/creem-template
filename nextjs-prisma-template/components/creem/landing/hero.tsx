@@ -4,6 +4,8 @@ import Balancer from "react-wrap-balancer";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Code2, Wallet, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
+import { authClient } from "@/lib/auth-client";
 
 import { Badge } from "@/components/ui/badge";
 import { TerminalButton } from "@/components/ui/terminal-button";
@@ -37,7 +39,14 @@ const FeatureCard = ({ icon: Icon, title, description }: {
 
 export const Hero = () => {
   const router = useRouter();
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    authClient.getSession().then(({ data }) => {
+      setIsLoggedIn(!!data?.user);
+    });
+  }, []);
+
   return (
     <>
       {/* Base Layer: Primary gradient background creating depth */}
@@ -105,7 +114,7 @@ export const Hero = () => {
             custom={0.4}
           >
             <TerminalButton
-              onClick={() => router.push("/pricing")}
+              onClick={() => router.push(isLoggedIn ? "/dashboard" : "/signup")}
               prompt="$"
               command="cd"
               path="/demo-store"
