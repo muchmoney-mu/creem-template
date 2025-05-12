@@ -1272,10 +1272,10 @@ concat-map@0.0.1:
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-creem@0.3.32:
-  version "0.3.32"
-  resolved "https://registry.yarnpkg.com/creem/-/creem-0.3.32.tgz#45a6b6cde1629a1f6bf6250a29cb6af2e3a3b721"
-  integrity sha512-Ro5Sqq1wIcFO3Kl3Rn1Hd/PPsLenBaY0awKV8wDOHXnIHYpqkHv6crbu2ZUxJwMhMqnXejvFFBN4bmB03gBLAw==
+creem@0.3.36:
+  version "0.3.36"
+  resolved "https://registry.yarnpkg.com/creem/-/creem-0.3.36.tgz#b50a7fe1692c828adc59c3525a8c495eef3cc700"
+  integrity sha512-XcWb1R2qVSFfSe9hBoTVWNxp2VyYu7HcgAnI6VWBWRmHsg9U/4+uHkweO8MefxWtQ0IbNJrncuHAE4V5KDce/w==
 
 cross-spawn@^7.0.0, cross-spawn@^7.0.2:
   version "7.0.3"
